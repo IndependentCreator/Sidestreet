@@ -5,7 +5,7 @@
 		{{ . }}
 	</div>
 	{{- end }}
-	{{ $paginator := .Paginate (where .Site.RegularPages "Type" "article") }}
+        {{ $paginator := .Paginate (where (where .Site.RegularPages "Type" "article") "Params.index" true) }}
 	{{- range $paginator.Pages }}
 		{{- .Render "summary" }}
 	{{- end }}
