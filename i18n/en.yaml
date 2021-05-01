@@ -73,6 +73,11 @@
 - id: legal_title
   translation: "Legal Information"
 
+# Privacy link
+- id: privacy_link
+  translation:
+    '<a class="widget__link" href="/privacy/" target="_blank">Privacy Policy</a>'
+
 # Footer
 - id: footer_credits
   translation:

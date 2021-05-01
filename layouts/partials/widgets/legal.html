@@ -1,6 +1,10 @@
 <div class="widget-legal widget">
 	<h4 class="widget__title">{{ T "legal_title" }}</h4>
 	<div class="widget__content">
-		{{ $.Site.Params.widgets.legal_content }}
+		<ul class="widget__list">
+		<li class="widget__item">{{ $.Site.Params.widgets.legal_content1 }}</li>
+		<li class="widget__item">{{ $.Site.Params.widgets.legal_content2 }}</li>
+		<li class="widget__item">{{ T "privacy_link" | safeHTML }}</li>
+		</ul>
 	</div>
 </div>
