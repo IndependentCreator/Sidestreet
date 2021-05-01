@@ -1,4 +1,6 @@
-# Mainroad
+# Sidestreet
+
+**Sidestreet** is a theme for Hugo, based on the excellent [Mainroad theme](https://github.com/vimux/mainroad) by vimux.
 
 **Mainroad** is a responsive, simple, clean and content-focused [Hugo](https://gohugo.io/) theme based on the
 [MH Magazine lite](https://wordpress.org/themes/mh-magazine-lite/) WordPress theme.
