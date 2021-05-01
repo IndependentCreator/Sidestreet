@@ -1,4 +1,5 @@
 {{- $highlightColor := .Site.Params.style.vars.highlightColor | default (.Site.Params.highlightColor | default "#e22d30") -}}
+{{- $backgroundColor := .Site.Params.style.vars.backgroundColor | default (.Site.Params.backgroundColor | default "#2e2e2e") -}}
 
 {{- $fontSans := `"Open Sans", Helvetica, Arial, sans-serif` -}}
 {{- $fontMono := `SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace` -}}
@@ -136,7 +137,7 @@ textarea {
 	font-weight: 700;
 	color: #fff;
 	white-space: pre-line;
-	background: #2a2a2a;
+	background: {{ $backgroundColor }};
 }
 
 .btn:hover {
@@ -297,7 +298,7 @@ pre code {
 kbd {
 	padding: 2px 3px;
 	color: #fff;
-	background-color: #2a2a2a;
+	background-color: {{ $backgroundColor }};
 }
 
 blockquote {
@@ -460,7 +461,7 @@ select {
 	padding: 0;
 	font: inherit;
 	color: #fff;
-	background: #2a2a2a;
+	background: {{ $backgroundColor }};
 	border: 0;
 	outline: 0;
 }
@@ -500,7 +501,7 @@ button:not(:-moz-focusring):focus > .menu__btn-title {
 
 .menu__list {
 	list-style: none;
-	background: #2a2a2a;
+	background: {{ $backgroundColor }};
 }
 
 .menu__item:hover {
@@ -748,7 +749,7 @@ button:not(:-moz-focusring):focus > .menu__btn-title {
 	margin: 0 6px 6px 0;
 	margin: 0 .375rem .375rem 0;
 	text-transform: uppercase;
-	background: #2a2a2a;
+	background: {{ $backgroundColor }};
 }
 
 .tags__item:hover {
@@ -794,7 +795,7 @@ button:not(:-moz-focusring):focus > .menu__btn-title {
 	-ms-user-select: none;
 	-o-user-select: none;
 	user-select: none;
-	background: #2a2a2a;
+	background: {{ $backgroundColor }};
 }
 
 .toc__menu ul {
@@ -1027,7 +1028,7 @@ input[type=reset] {
 	color: #fff;
 	text-transform: uppercase;
 	cursor: pointer;
-	background: #2a2a2a;
+	background: {{ $backgroundColor }};
 	border: 0;
 	transition: all .1s linear;
 	-webkit-appearance: none;
@@ -1166,7 +1167,7 @@ textarea {
 	font-size: 12px;
 	font-size: .75rem;
 	color: #999;
-	background: #2a2a2a;
+	background: {{ $backgroundColor }};
 	border-top: 3px solid #999;
 }
 
