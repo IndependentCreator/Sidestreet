@@ -65,6 +65,10 @@
 - id: tags_title
   translation: "Tags"
 
+# About widget
+- id: about_title
+  translation: "About"
+
 # Footer
 - id: footer_credits
   translation:
