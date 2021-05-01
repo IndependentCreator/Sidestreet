@@ -69,6 +69,10 @@
 - id: about_title
   translation: "About"
 
+# Legal widget
+- id: legal_title
+  translation: "Legal Information"
+
 # Footer
 - id: footer_credits
   translation:
