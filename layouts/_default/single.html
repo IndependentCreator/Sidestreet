@@ -11,9 +11,31 @@
 			{{- end }}
 		</header>
 		{{- if .Params.thumbnail }}
-		<figure class="post__thumbnail">
-			<img src="{{ .Params.thumbnail | relURL }}" alt="{{ .Title }}">
-		</figure>
+			<figure class="post__thumbnail">
+			{{ $image_path := .Params.thumbnail | relURL }}
+			{{ $src := resources.GetMatch $image_path }}
+			{{/* Responsive image support via hugo image processing + html5 srcset */}}
+			{{/* Adapted from https://cpbotha.net/2020/05/02/drop-in-replacement-for-hugo-figure-shortcode-with-responsive-img-srcset/ */}}
+
+			{{/* hugo will resize to all of these sizes that are smaller than your original. configure if you like! */}}
+			{{ $sizes := (slice "480" "800" "1200" "1500") }}
+			<img
+			{{ if $src }}
+			sizes="(min-width: 35em) 1200px, 100vw"
+			{{/* only srcset images smaller than or equal to the src (original) image size, as Hugo will upscale small images */}}
+			srcset='
+			{{ range $sizes }}
+				{{ if ge $src.Width . }}{{ ($src.Resize (printf "%sx" .)).Permalink }} {{ (printf "%sw" .) }},{{ end }}
+			{{ end }}'
+
+			{{/* when no support for srcset (old browsers, RSS), we load small (800px) */}}
+			{{/* if image smaller than 800, then load the image itself */}}
+			{{ if ge $src.Width "800" }}src="{{ ($src.Resize "800x").Permalink }}"
+			{{ else }}src="{{ $src.Permalink }}"
+			{{ end }}
+			{{ end }}
+			/> <!-- Closing img tag -->
+			</figure>
 		{{- end }}
 		{{- partial "post_toc.html" . -}}
 		<div class="content post__content clearfix">
