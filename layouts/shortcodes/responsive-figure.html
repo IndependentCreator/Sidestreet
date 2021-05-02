@@ -31,7 +31,13 @@ Changes:
 {{ $sizes := (slice "480" "800" "1200" "1500") }}
 
 {{/* get file that matches the filename as specified as src="" in shortcode */}}
-{{ $src := .Page.Resources.GetMatch (printf "*%s*" (.Get "src")) }}
+{{/* first check global resources */}}
+{{ .Scratch.Set "src" (resources.GetMatch (.Get "src")) }}
+{{ if not (.Scratch.Get "src") }}
+    {{/* No matching global resource, so next check page resources */}}
+    {{ .Scratch.Set "src" (.Page.Resources.GetMatch (printf "*%s*" (.Get "src"))) }}
+{{ end }}
+{{ $src := .Scratch.Get "src" }}
 
 <figure{{ with .Get "class" }} class="{{ . }}"{{ end }}>
     {{- if .Get "link" -}}
