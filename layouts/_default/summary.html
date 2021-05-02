@@ -2,7 +2,11 @@
 	{{- if .Params.thumbnail }}
 	<figure class="list__thumbnail">
 		<a href="{{ .Permalink }}">
-			<img src="{{ .Params.thumbnail | relURL }}" alt="{{ .Title }}" />
+			{{/* Resize to smaller image for faster loading */}}
+			{{ $image := .Params.thumbnail | relURL }}
+			{{ $src := resources.Get $image }}
+			{{ $small := $src.Resize "360x q85 Box" }}
+			<img alt="{{ .Title }}" src="{{ $small.RelPermalink }}" >
 		</a>
 	</figure>
 	{{- end }}
