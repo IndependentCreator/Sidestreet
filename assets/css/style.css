@@ -428,7 +428,7 @@ select {
 	font-size: 2rem;
 	font-weight: 700;
 	line-height: 1;
-	color: #000;
+	color: {{ $backgroundColor }};
 }
 
 .logo__tagline {
