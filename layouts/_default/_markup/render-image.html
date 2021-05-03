@@ -1,0 +1,10 @@
+{{/* https://pawelgrzybek.com/native-lazy-loading-of-images-on-hugo-based-website/ */}}
+{{ $img := imageConfig (add "/static" (.Destination | safeURL)) }}
+
+<img
+  src="{{ .Destination | safeURL }}"
+  alt="{{ .Text }}"
+  loading="lazy"
+  width="{{ $img.Width }}"
+  height="{{ $img.Height }}"
+/>
