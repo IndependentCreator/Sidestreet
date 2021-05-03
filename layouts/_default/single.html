@@ -12,10 +12,16 @@
 		</header>
 		{{- if .Params.thumbnail }}
 			<figure class="post__thumbnail">
-			{{ $image_path := .Params.thumbnail | relURL }}
-			{{ $src := resources.GetMatch $image_path }}
 			{{/* Responsive image support via hugo image processing + html5 srcset */}}
 			{{/* Adapted from https://cpbotha.net/2020/05/02/drop-in-replacement-for-hugo-figure-shortcode-with-responsive-img-srcset/ */}}
+			{{ $image_path := .Params.thumbnail | relURL }}
+			{{ $src := resources.GetMatch $image_path }}
+			{{ .Scratch.Set "src" (resources.GetMatch $image_path) }}
+			{{ if not (.Scratch.Get "src") }}
+			    {{/* No matching global resource, so next check page resources */}}
+			    {{ .Scratch.Set "src" (.Page.Resources.GetMatch .Params.thumbnail ) }}
+			{{ end }}
+			{{ $src := .Scratch.Get "src" }}
 
 			{{/* hugo will resize to all of these sizes that are smaller than your original. configure if you like! */}}
 			{{ $sizes := (slice "480" "800" "1200" "1500") }}
