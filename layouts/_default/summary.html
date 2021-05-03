@@ -4,14 +4,12 @@
 		<a href="{{ .Permalink }}">
 			{{/* Resize to smaller image for faster loading */}}
 			{{ $image_path := .Params.thumbnail | relURL }}
-			{{ $src := resources.GetMatch $image_path }}
 			{{ .Scratch.Set "src" (resources.GetMatch $image_path) }}
 			{{ if not (.Scratch.Get "src") }}
 			    {{/* No matching global resource, so next check page resources */}}
 			    {{ .Scratch.Set "src" (.Page.Resources.GetMatch .Params.thumbnail ) }}
 			{{ end }}
 			{{ $src := .Scratch.Get "src" }}
-			{{/* $src := resources.Get $image */}}
 			{{ $small := $src.Resize "360x q85 Box" }}
 			<img alt="{{ .Title }}" src="{{ $small.RelPermalink }}" >
 		</a>
