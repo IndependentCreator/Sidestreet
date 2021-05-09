@@ -1,19 +1,20 @@
 <article class="list__item post">
 	{{- if .Params.thumbnail }}
-	<figure class="list__thumbnail">
-		<a href="{{ .Permalink }}">
-			{{/* Resize to smaller image for faster loading */}}
-			{{ $image_path := .Params.thumbnail | relURL }}
-			{{ .Scratch.Set "src" (resources.GetMatch $image_path) }}
-			{{ if not (.Scratch.Get "src") }}
-			    {{/* No matching global resource, so next check page resources */}}
-			    {{ .Scratch.Set "src" (.Page.Resources.GetMatch .Params.thumbnail ) }}
-			{{ end }}
-			{{ $src := .Scratch.Get "src" }}
-			{{ $small := $src.Resize "360x q85 Box" }}
-			<img alt="{{ .Title }}" src="{{ $small.RelPermalink }}" >
-		</a>
-	</figure>
+	<picture class="list__thumbnail">
+		{{/* Resize to smaller image for faster loading */}}
+		{{ $image_path := .Params.thumbnail | relURL }}
+		{{ .Scratch.Set "src" (resources.GetMatch $image_path) }}
+		{{ if not (.Scratch.Get "src") }}
+		    {{/* No matching global resource, so next check page resources */}}
+		    {{ .Scratch.Set "src" (.Page.Resources.GetMatch .Params.thumbnail ) }}
+		{{ end }}
+		{{ $src := .Scratch.Get "src" }}
+		{{ $webp := $src.Resize "360x webp" }}
+		<source type="image/webp" srcset="{{ $webp.RelPermalink }}">
+		{{/* In case the browser doesn't do webp, provide a fallback image */}}
+		{{ $fallback := $src.Resize "360x q85 Box" }}
+		<img alt="{{ .Params.thumbnail_alt }}" src="{{ $fallback.RelPermalink }}" >
+	</picture>
 	{{- end }}
 	<header class="list__header">
 		<h2 class="list__title post__title">
