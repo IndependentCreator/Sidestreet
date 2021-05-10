@@ -1,6 +1,7 @@
 {{- $logoTitle := .Site.Params.logo.title | default .Site.Title -}}
 {{- $logoSubtitle := .Site.Params.logo.subtitle | default .Site.Params.subtitle -}}
 {{- $logoImage := .Site.Params.logo.image -}}
+{{- $logoAlt := printf "%s Logo" $logoTitle }}
 
 {{- if or $logoTitle $logoImage }}
 	{{/* Defined when logo is mixed (image + text) */}}
@@ -10,7 +11,7 @@
 		<a class="logo__link" href="{{ "" | relLangURL }}"{{ with $logoTitle }} title="{{ . }}"{{ end }} rel="home">
 			{{ with $logoImage -}}
 				<div class="logo__item logo__imagebox">
-					<img class="logo__img" src="{{ . | relURL }}">
+					<img class="logo__img" src="{{ . | relURL }}" alt="{{ $logoAlt }}">
 				</div>
 			{{- end -}}
 			{{ with $logoTitle -}}
