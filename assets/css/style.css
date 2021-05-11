@@ -1061,11 +1061,17 @@ textarea {
 
 .widget__title {
 	position: relative;
-	padding-bottom: 5px;
+	padding-bottom: 3px;
 	font-size: 16px;
 	font-size: 1rem;
 	text-transform: uppercase;
 	border-bottom: 3px solid {{ $highlightColor }};
+	display: block;
+	margin-left: 0;
+	margin-right: 0;
+	margin-bottom: .5em;
+	margin-top: 0;
+	font-weight: bold;
 }
 
 .widget__item {

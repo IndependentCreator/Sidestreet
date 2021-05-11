@@ -3,7 +3,7 @@
 
 {{- if $popular }}
 <div class="widget-popular widget">
-	<h4 class="widget__title">{{ T "popular_title" }}</h4>
+	<div class="widget__title">{{ T "popular_title" }}</div>
 	<div class="widget__content">
 		<ul class="widget__list">
 			{{- range first $popular_num $popular }}
