@@ -13,7 +13,11 @@
 		<source type="image/webp" srcset="{{ $webp.RelPermalink }}">
 		{{/* In case the browser doesn't do webp, provide a fallback image */}}
 		{{ $fallback := $src.Resize "360x q85 Box" }}
-		<img alt="{{ .Params.thumbnail_alt }}" src="{{ $fallback.RelPermalink }}" >
+		<img alt="{{ .Params.thumbnail_alt }}"
+                 src="{{ $fallback.RelPermalink }}"
+                 width="{{ $fallback.Width }}"
+                 height="{{ $fallback.Height }}"
+		>
 	</picture>
 	{{- end }}
 	<header class="list__header">

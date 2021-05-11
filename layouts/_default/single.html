@@ -57,6 +57,8 @@
 			        src="{{ $src.RelPermalink }}"
 			    {{ end }}
 			    alt="{{ .Params.thumbnail_alt }}"
+                            width="{{ $src.Width }}"
+                            height="{{ $src.Height }}"
                             loading="lazy"
                             decoding="async"
 			/> <!-- Closing img tag -->
