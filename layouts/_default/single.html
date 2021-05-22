@@ -56,7 +56,8 @@
 			    {{ else }}
 			        src="{{ $src.RelPermalink }}"
 			    {{ end }}
-			    alt="{{ .Params.image_alt }}"
+                            {{ $thumbnail_alt := .Params.thumbnail_alt }}
+			    alt="{{ .Params.image_alt | default $thumbnail_alt }}"
                             width="{{ $src.Width }}"
                             height="{{ $src.Height }}"
                             loading="lazy"
