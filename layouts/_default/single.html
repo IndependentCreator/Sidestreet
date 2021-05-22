@@ -10,21 +10,21 @@
 			<div class="post__meta meta">{{ . }}</div>
 			{{- end }}
 		</header>
-		{{- if .Params.thumbnail }}
+		{{- if .Params.image }}
 			{{/* Responsive image support via hugo image processing + html5 srcset */}}
 			{{/* Adapted from https://cpbotha.net/2020/05/02/drop-in-replacement-for-hugo-figure-shortcode-with-responsive-img-srcset/ */}}
-			{{ $image_path := .Params.thumbnail | relURL }}
+			{{ $image_path := .Params.image | relURL }}
 			{{ $src := resources.GetMatch $image_path }}
 			{{ .Scratch.Set "src" (resources.GetMatch $image_path) }}
 			{{ if not (.Scratch.Get "src") }}
 			    {{/* No matching global resource, so next check page resources */}}
-			    {{ .Scratch.Set "src" (.Page.Resources.GetMatch .Params.thumbnail ) }}
+			    {{ .Scratch.Set "src" (.Page.Resources.GetMatch .Params.image ) }}
 			{{ end }}
 			{{ $src := .Scratch.Get "src" }}
 
 			{{/* hugo will resize to all of these sizes that are smaller than your original. configure if you like! */}}
 			{{ $sizes := (slice "480" "800" "1200" "1500") }}
-			<picture class="post__thumbnail">
+			<picture class="post__image">
 			{{ if $src }}
 			<source type="image/webp"
 			    sizes="(min-width: 35em) 1200px, 100vw"
@@ -56,7 +56,7 @@
 			    {{ else }}
 			        src="{{ $src.RelPermalink }}"
 			    {{ end }}
-			    alt="{{ .Params.thumbnail_alt }}"
+			    alt="{{ .Params.image_alt }}"
                             width="{{ $src.Width }}"
                             height="{{ $src.Height }}"
                             loading="lazy"
