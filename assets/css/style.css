@@ -1361,5 +1361,5 @@ textarea {
     border-radius: 0.125rem;
     color: #555;
     background-color: rgba(215, 238, 249, 0.4);
-    border-left: 5px solid #bbdefb;
+    border-left: 5px solid {{ $highlightColor }};
 }
