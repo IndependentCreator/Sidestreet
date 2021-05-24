@@ -9,6 +9,9 @@
 			{{ with partial "post_meta.html" . -}}
 			<div class="post__meta meta">{{ . }}</div>
 			{{- end }}
+			{{ with partial "post_header.html" . -}}
+			<div class="post__header">{{ . }}</div>
+			{{- end }}
 		</header>
 		{{- if .Params.image }}
 			{{/* Responsive image support via hugo image processing + html5 srcset */}}
