@@ -34,7 +34,7 @@
 		{{ .Summary }}
 	</div>
 	{{- if .Site.Params.readmore }}
-	{{- if .Truncated }}
+	{{- if or (.Truncated) (.Params.summary) }}
 	<div class="list__footer clearfix">
 		<a class="list__footer-readmore btn" href="{{ .RelPermalink }}" rel=”nofollow”>{{ T "read_more" }}</a>
 	</div>
