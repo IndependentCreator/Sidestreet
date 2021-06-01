@@ -1344,8 +1344,8 @@ textarea {
 
 /* Shortcodes */
 .box {
-  font-size: 0.925rem;
-  font-family: $title-font;
+  font-size: 14px;
+  font-family: {{ $fontFamilyPrimary }};
   word-break: keep-all;
   padding: 0.5rem;
   margin: 2rem 0;
