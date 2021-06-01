@@ -7,7 +7,7 @@
 	<div class="widget__content">
 		<ul class="widget__list">
 			{{- range first $popular_num $popular }}
-			<li class="widget__item"><a class="widget__link" href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+			<li class="widget__item"><a class="widget__link" href="{{ .RelPermalink }}">{{ .Title | title }}</a></li>
 			{{- end }}
 		</ul>
 	</div>
