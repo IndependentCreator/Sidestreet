@@ -3,11 +3,12 @@
 <head>
        <script type="application/ld+json">
 	{{ if eq .Type "article" }}
-	{
+	
+	[{
 	  "@context": "https://schema.org",
 	  "@type": "BlogPosting",
 	  "headline": {{ .Title }},
-	  "image": {{ path.Join .Dir .Params.thumbnail | absURL }},
+	  "image": {{ path.Join .File.Dir .Params.thumbnail | absURL }},
 	  "datePublished": {{ .Date }},
 	  "dateModified": {{ .Lastmod }},
 	  "author": {
@@ -25,8 +26,7 @@
 	  },
 	  "description": {{ .Description | plainify | safeHTML }},
 	  "keywords": [{{ range $i, $e := .Params.tags }}{{ if $i }}, {{ end }}{{ $e }}{{ end }}]
-	}
-	{{ end }}
+	},
 	{
 	  "@context": "https://schema.org",
 	  "@type": "Organization",
@@ -36,8 +36,10 @@
 	  /*  "https://www.instagram.com/,
 	    "https://twitter.com/ */
 	  ]
-	}
-	</script>
+         }]
+	{{ end }}
+</script>
+
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
