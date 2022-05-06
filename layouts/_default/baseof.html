@@ -8,7 +8,7 @@
 	  "@context": "https://schema.org",
 	  "@type": "BlogPosting",
 	  "headline": {{ .Title }},
-	  "image": {{ path.Join .File.Dir .Params.thumbnail | absURL }},
+	  "image": {{ path.Join .File.Dir .Params.thumbnail | relURL }},
 	  "datePublished": {{ .Date }},
 	  "dateModified": {{ .Lastmod }},
 	  "author": {
@@ -21,7 +21,7 @@
 	    "name": {{ .Site.Title }},
 	    "logo": {
 	      "@type": "ImageObject",
-	      "url": {{ .Site.Params.logo.image | absURL }}
+	      "url": {{ .Site.Params.logo.image | relURL }}
 	    }
 	  },
 	  "description": {{ .Description | plainify | safeHTML }},
