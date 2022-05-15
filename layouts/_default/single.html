@@ -85,9 +85,11 @@
 				{{- end }}
                         {{ end }}
 		</footer>
+		{{- if .Params.comments }}
+			{{ partial "netlify-comment-form.html" . }}
+		{{- end }}
 	</article>
 </main>
 {{ partial "authorbox.html" . }}
 {{ partial "pager.html" . }}
-{{ partial "netlify-comment-form.html" . }}
 {{ end }}
