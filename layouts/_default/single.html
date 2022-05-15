@@ -88,6 +88,7 @@
 		{{- if .Params.comments }}
 			{{ partial "netlify-comment-form.html" . }}
 		{{- end }}
+		{{ partial "netlify-comment-list.html" . }}
 	</article>
 </main>
 {{ partial "authorbox.html" . }}
