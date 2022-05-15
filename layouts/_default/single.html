@@ -85,10 +85,14 @@
 				{{- end }}
                         {{ end }}
 		</footer>
-		{{- if .Params.comments }}
-			{{ partial "netlify-comment-form.html" . }}
-		{{- end }}
-		{{ partial "netlify-comment-list.html" . }}
+                {{ if eq .Type "article" }}
+			{{ partial "netlify-comment-list.html" . }}
+			{{- if .Params.comments }}
+				{{ partial "netlify-comment-form.html" . }}
+			{{- else }}
+			Comments Closed
+			{{- end }}
+                {{ end }}
 	</article>
 </main>
 {{ partial "authorbox.html" . }}
