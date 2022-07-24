@@ -1385,6 +1385,7 @@ textarea {
   margin-top: 10px;
   margin-left: 4em;
   border-radius: 5px;
+  background-color: #eee;
 }
 
 .post-comment-header {
@@ -1395,12 +1396,16 @@ textarea {
 .post-comment-avatar {
   display: inline-block;
   border-radius: 50%;
+  max-width: 50px;
+  max-height: 50px;
 }
 
 .post-comment-avatar-reply {
   display: inline-block;
   border-radius: 50%;
   margin-left: 2em;
+  max-width: 50px;
+  max-height: 50px;
 }
 
 .post-comment-info {
@@ -1427,12 +1432,14 @@ textarea {
   margin-top: 10px;
   float: right;
   font-size: 16px;
+  font-weight: bold;
 }
 
 .post-comment-reply-button-reply {
   margin-top: 10px;
   float: right;
   font-size: 16px;
+  font-weight: bold;
 }
 
 @media only screen and (min-width: 767px) {
@@ -1475,3 +1482,13 @@ textarea {
   display: block;
   background-color: white;
 }
+
+.comment_form {
+  padding: 25px;
+  padding-top: 10%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
