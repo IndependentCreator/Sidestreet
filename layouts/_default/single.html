@@ -86,12 +86,12 @@
                         {{ end }}
 		</footer>
                 {{ if eq .Type "article" }}
-			{{ partial "comments/comments-list.html" . }}
 			{{- if .Params.comments }}
 				{{ partial "comments/comment-form.html" . }}
 			{{- else }}
 			Comments Closed
 			{{- end }}
+			{{ partial "comments/comments-list.html" . }}
                 {{ end }}
 	</article>
 </main>

@@ -1490,8 +1490,7 @@ textarea {
 }
 
 .comment_form {
-  padding: 25px;
-  padding-top: 10%;
+  padding-top: 5%;
   top: 0;
   left: 0;
   width: 100%;
