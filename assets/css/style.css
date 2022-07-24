@@ -1377,6 +1377,7 @@ textarea {
   font-size: inherit;
   font: inherit;
   border-radius: 5px;
+  position: relative;
 }
 
 .post-comment-reply {
@@ -1386,6 +1387,7 @@ textarea {
   margin-left: 4em;
   border-radius: 5px;
   background-color: #eee;
+  position: relative;
 }
 
 .post-comment-header {
@@ -1430,14 +1432,18 @@ textarea {
 
 .post-comment-reply-button {
   margin-top: 10px;
-  float: right;
+  position: absolute;
+  bottom: 3px;
+  right: 5px;
   font-size: 16px;
   font-weight: bold;
 }
 
 .post-comment-reply-button-reply {
   margin-top: 10px;
-  float: right;
+  position: absolute;
+  bottom: 3px;
+  right: 5px;
   font-size: 16px;
   font-weight: bold;
 }
