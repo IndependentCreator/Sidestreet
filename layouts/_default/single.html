@@ -86,9 +86,9 @@
                         {{ end }}
 		</footer>
                 {{ if eq .Type "article" }}
-			{{ partial "netlify-comment-list.html" . }}
+			{{ partial "comments/comments-list.html" . }}
 			{{- if .Params.comments }}
-				{{ partial "netlify-comment-form.html" . }}
+				{{ partial "comments/comment-form.html" . }}
 			{{- else }}
 			Comments Closed
 			{{- end }}
