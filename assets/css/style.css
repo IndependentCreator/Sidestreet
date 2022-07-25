@@ -1435,7 +1435,7 @@ textarea {
   position: absolute;
   bottom: 3px;
   right: 5px;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: bold;
 }
 
@@ -1444,7 +1444,7 @@ textarea {
   position: absolute;
   bottom: 3px;
   right: 5px;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: bold;
 }
 
@@ -1454,7 +1454,7 @@ textarea {
     padding: 10px;
     margin-top: 10px;
     margin-left: 4em;
-    font-size: 16px;
+    font-size: 14px;
     border-radius: 5px;
   }
   .post-comment-reply {
@@ -1462,7 +1462,7 @@ textarea {
     padding: 10px;
     margin-top: 10px;
     margin-left: 8em;
-    font-size: 16px;
+    font-size: 14px;
     border-radius: 5px;
   }
   .post-comment-avatar-reply {
