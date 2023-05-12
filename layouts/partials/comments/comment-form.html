@@ -10,8 +10,6 @@
     <input type="hidden" name="options[origin]" value="{{ .Permalink }}">
     <input type="hidden" name="options[parent]" value="{{ .File.BaseFileName }}">
     <input type="hidden" name="fields[reply_to]" value="">
-    <input type="hidden" name="options[reCaptcha][siteKey]" value="{{ .Site.Params.recaptcha_siteKey }}">
-    <input type="hidden" name="options[reCaptcha][secret]" value="{{ .Site.Params.recaptcha_secret }}">
 
     <fieldset>
       <input name="fields[name]" type="text" class="post-comment-field" placeholder="Your name">
@@ -39,9 +37,6 @@
     </fieldset>
 
   </form>
-
-  <script async src='https://www.google.com/recaptcha/api.js' ></script>
-
 
   <script type="text/javascript">
     document.getElementById("submit_button").disabled = true;

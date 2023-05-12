@@ -71,6 +71,9 @@
 			{{ end }}
 			</picture>
 		{{- end }}
+                {{ $somevar := "spam"}}
+        	<button onclick="alert(window.webpackNumbers.wordToNum('Five'));">Alert</button>
+        	<button id="loadComments">Load Comments</button>
 		{{- partial "post_toc.html" . -}}
 		<div class="content post__content clearfix">
 			{{ .Content }}
@@ -86,6 +89,7 @@
                         {{ end }}
 		</footer>
                 {{ if eq .Type "article" }}
+			<div id="commentPlaceholder"/>
 			{{- if .Params.comments }}
 				{{ partial "comments/comment-form.html" . }}
 			{{- else }}
@@ -95,6 +99,7 @@
                 {{ end }}
 	</article>
 </main>
+<script src="/assets/comments.js"></script>
 {{ partial "authorbox.html" . }}
 {{ partial "pager.html" . }}
 {{ end }}
