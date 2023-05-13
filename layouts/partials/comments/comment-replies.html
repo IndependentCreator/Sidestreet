@@ -1,3 +1,5 @@
+<!-- Check all entries to see if any of them are children of the given entries -->
+{{ $sdcp := $.SiteDataComments_parent }}
 {{ range $index, $comments := (index $.SiteDataComments_parent $.entryId_parent ) }}
   {{ if eq .reply_to $.parentId }}
     <div class="post-comment-reply">
@@ -10,5 +12,6 @@
       </div>
       {{ .body | markdownify }}
     </div>
+  {{ partial "comments/comment-replies" (dict "entryId_parent" $.entryId_parent "SiteDataComments_parent" $sdcp "parentId" ._id "parentName" .name "context" .) }}
   {{ end }}
 {{ end }}
