@@ -2,7 +2,7 @@
 <html class="no-js" lang="{{ .Site.Language.Lang }}">
 <head>
        {{- if .Site.Params.umami }}
-       <script async src="{{ .Site.Params.umami_url }}" data-website-id="{{ .Site.Params.data_website_id }}"></script>
+       <script async src="{{ .Site.Params.umami_url }}" data-website-id="{{ .Site.Params.umami_data_website_id }}"></script>
        {{- end }}
        <script type="application/ld+json">
 	{{ if eq .Type "article" }}
